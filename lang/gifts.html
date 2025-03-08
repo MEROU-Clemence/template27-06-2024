@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="{{CurrentLang.IsoLang}}" culture="{{CurrentLang.CultureLang}}">
+<head>
+    <title>{{ResourcesTemplate.pageMenuTitle_Gifts}} - {{CustomTitle}} - {{City}} - {{Country}}</title>
+    <meta name="description" content="{{ResourcesTemplate.GiftCard}}">
+    {{>CommonMetaTags}}
+    <link rel="canonical" href="{{UrlGifts}}" />
+    <meta property="og:url" content="{{UrlGifts}}" />
+    <meta property="og:title" content="{{ResourcesTemplate.pageMenuTitle_Gifts}}" />
+    <meta property="og:image" content="{{#Photos.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}" />
+    <meta property="og:description" content="{{ResourcesTemplate.GiftCard}}" />
+    {{>FaviconTags}}
+    {{>CommonStylesheets}}
+    {{#HasBookingActivated}}{{>ScriptCalendarClick}}{{/HasBookingActivated}}
+</head>
+<body>
+    {{{ScriptAnalytics}}}
+    {{{GoogleTagManagerBody}}}
+    {{>Header}}
+
+    <main>
+        <!-- SECTION BANNER -->
+        <section class="section-title-BG bg-img" style="background-image: url({{#Photos.0}}{{UrlMedias}}/crop-1600x400/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}});" alt="{{NamePhoto}}">
+            <div class="opacity">
+                <div class="text-center">
+                    <h1 class="big-title">{{ResourcesTemplate.TreatYourFriends}}</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION GIFTS -->
+        {{#HasGiftCardsActivated}}
+        <!-- SECTION CARTES CADEAUX -->
+        <section class="section">
+            <div class="content-section">
+                <div class="section-title">
+                    <h2>{{ResourcesTemplate.Giftcards}}</h2>
+                </div>
+
+                {{#GiftCards}}
+                <div class="giftcard-big-contain">
+                    <div class="giftcard-contain">
+                        <a href="{{UrlGiftCards}}" class="bg-img img-giftcards" style="background-image: url({{#PhotoGiftCard}}{{UrlMedias}}/crop-480x320/{{IdMedia}}/{{FileNamePhoto}}{{/PhotoGiftCard}}{{^PhotoGiftCard}}https://static.elloha.com/webgen/img/giftcard.jpg {{/PhotoGiftCard}});"></a>
+                        <div class="giftcard-infos">
+                            <div class="amount-and-duration">
+                                <div class="gift-amount m-b-15">{{AmountGiftCard}} {{CurrencySymbol}}</div>
+                                <div class="duration-bloc">
+                                    {{#DurationGiftCard}}
+                                    <span class="date-os">{{ResourcesTemplate.Valid}} </span>
+                                    <strong class="date-os">{{DurationGiftCard}} {{ResourcesTemplate.month}}</strong>
+                                    {{/DurationGiftCard}}
+
+                                    {{^DurationGiftCard}}
+
+                                    {{#DateFromGiftCardString}}
+                                    <span class="date-os">{{ResourcesTemplate.Valid}} </span>
+                                    <span class="date-os lowercase">{{ResourcesTemplate.DateFrom}} </span>
+                                    <strong class="date-os">{{DateFromGiftCardString}}</strong>
+                                    <span class="date-os">{{ResourcesTemplate.DateTo}} </span>
+                                    {{/DateFromGiftCardString}}
+
+                                    {{^DateFromGiftCardString}}
+                                    {{#DateToGiftCardString}}
+                                    <span class="date-os">{{ResourcesTemplate.Valid}} </span>
+                                    <span class="date-os lowercase">{{ResourcesTemplate.DateUntil}} </span>
+                                    {{/DateToGiftCardString}}
+                                    {{/DateFromGiftCardString}}
+
+                                    {{#DateToGiftCardString}}
+                                    <strong class="date-os">{{DateToGiftCardString}}</strong>
+                                    {{/DateToGiftCardString}}
+
+                                    {{/DurationGiftCard}}
+                                </div>
+                            </div>
+                            <h3>{{TitleGiftCard}}</h3>
+                            <div class="txt m-b-15 descrip-gifts">{{DescriptionGiftCardLength150}}</div>
+                            <a class="btn btn-giftcards" href="{{UrlGiftCards}}">{{ResourcesTemplate.GiftButton}}</a>
+                        </div>
+                    </div>
+                </div>
+                {{/GiftCards}}
+            </div>
+        </section>
+        {{/HasGiftCardsActivated}}
+
+        {{#HasGiftVouchersActivated}}
+        <!-- SECTION CHEQUES CADEAUX -->
+        <section class="section">
+            <div class="content-section">
+                <div class="section-title">
+                    <h2>{{ResourcesTemplate.GiftVouchers}}</h2>
+                </div>
+
+                {{#GiftVouchers}}
+                <div class="giftcard-big-contain">
+                    <div class="giftcard-contain">
+                        <a href="{{UrlGiftVouchers}}" class="bg-img img-giftcards" style="background-image: url({{#PhotoGiftVoucher}}{{UrlMedias}}/crop-480x320/{{IdMedia}}/{{FileNamePhoto}}{{/PhotoGiftVoucher}}{{^PhotoGiftVoucher}}https://static.elloha.com/webgen/img/giftcard.jpg{{/PhotoGiftVoucher}}); "></a>
+                        <div class="giftcard-infos">
+                            <div class="amount-and-duration">
+                                <div class="gift-amount m-b-15">{{AmountGiftVoucher}} {{CurrencySymbol}}</div>
+                                <div class="duration-bloc">
+                                    {{#DurationGiftVoucher}}
+                                    <span class="date-os">{{ResourcesTemplate.Valid}} </span>
+                                    <strong class="date-os">{{DurationGiftVoucher}} {{ResourcesTemplate.month}}</strong>
+                                    {{/DurationGiftVoucher}}
+
+                                    {{^DurationGiftVoucher}}
+
+                                    {{#DateFromGiftVoucherString}}
+                                    <span class="date-os">{{ResourcesTemplate.Valid}} </span>
+                                    <span class="date-os lowercase">{{ResourcesTemplate.DateFrom}} </span>
+                                    <strong class="date-os">{{DateFromGiftVoucherString}}</strong>
+                                    <span class="date-os">{{ResourcesTemplate.DateTo}} </span>
+                                    {{/DateFromGiftVoucherString}}
+
+                                    {{^DateFromGiftVoucherString}}
+                                    {{#DateToGiftVoucherString}}
+                                    <span class="date-os">{{ResourcesTemplate.Valid}} </span>
+                                    <span class="date-os lowercase">{{ResourcesTemplate.DateUntil}} </span>
+                                    {{/DateToGiftVoucherString}}
+                                    {{/DateFromGiftVoucherString}}
+
+                                    {{#DateToGiftVoucherString}}
+                                    <strong class="date-os">{{DateToGiftVoucherString}}</strong>
+                                    {{/DateToGiftVoucherString}}
+
+                                    {{/DurationGiftVoucher}}
+                                </div>
+                            </div>
+                            <h3>{{TitleGiftVoucher}}</h3>
+                            <div class="txt m-b-15 descrip-gifts">{{DescriptionGiftVoucher}}</div>
+                            <a class="btn btn-giftcards" href="{{UrlGiftVouchers}}">{{ResourcesTemplate.GiftButton}}</a>
+                        </div>
+                    </div>
+                </div>
+                {{/GiftVouchers}}
+            </div>
+        </section>
+        {{/HasGiftVouchersActivated}}
+
+    </main>
+
+    {{>Footer}}
+    {{>CommonScripts}}
+    
+</body>
+</html>
