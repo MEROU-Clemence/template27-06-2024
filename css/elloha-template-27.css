@@ -1,3 +1,19 @@
+/*Variables*/
+:root {
+    --color-link: #FFBA5A;
+    --color-btn: #FFBA5A;
+    --color-btn-txt: #FFFFFF;
+    --color-text: #6C757D;
+    --color-text-white: #FFFFFF;
+    --color-title: #000000;
+    --color-bg-1: #FFFFFF;
+    --color-bg-2: #F2F4FB;
+    --color-bg-3: #1A1A1A;
+    --color-red: #BB8588;
+    --font-title: Playfair Display;
+    --font-text: Roboto;
+}
+
 /****** FOR ALL ******/
 * {
     box-sizing: border-box;
